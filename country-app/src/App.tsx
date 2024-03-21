@@ -1,11 +1,16 @@
 import './App.css';
 import Background from './components/Background';
 import Card from './components/Card';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 function App() {
   return (
     <>
-      <Background />
-      <Card />
+      <QueryClientProvider client={queryClient}>
+        <Background />
+        <Card />
+      </QueryClientProvider>
     </>
   );
 }
